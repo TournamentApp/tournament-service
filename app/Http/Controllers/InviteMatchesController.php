@@ -22,7 +22,7 @@ class InviteMatchesController extends Controller
             }else{
                 if($this->verifyCaptain()){
                     $inviteMatch = InviteMatches::create([
-                        "match_id" => $data['match_id'],
+                        "generic_match_id" => $data['match_id'],
                         "team_2" => $auth_user->team_id,
                         "status" => 1
                     ]);
@@ -51,7 +51,7 @@ class InviteMatchesController extends Controller
             $inviteMatch = InviteMatches::find($data['invite_id']);
             $inviteMatch->status = 2;
 
-            $match = GenericMatch::find($inviteMatch->match_id);
+            $match = GenericMatch::find($inviteMatch->generic_match_id);
             $match->team_2 = $inviteMatch->team_2;
             $match->status = 2;
             if($match->save()) {

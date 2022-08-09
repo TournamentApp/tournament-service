@@ -9,7 +9,7 @@ class InviteMatches extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['match_id', 'team_2', 'status'];
+    protected $fillable = ['generic_match_id', 'team_2', 'status'];
 
     protected $table = 'invite_matches';
 
