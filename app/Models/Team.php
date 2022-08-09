@@ -171,7 +171,7 @@ class Team extends Model
 
         $arr_invites = array();
         foreach($invites as $invite){
-            $match = GenericMatch::find($invite->match_id);
+            $match = GenericMatch::find($invite->generic_match_id);
             if($match->status !== 1){ continue; }
             $team = Team::find($match->team_1);
             $match['team_1'] = $team;
